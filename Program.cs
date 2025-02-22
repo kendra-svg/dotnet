@@ -114,4 +114,33 @@ Console.WriteLine(string.Compare("a", "A", StringComparison.Ordinal));  //Positi
 
 // string.Compare was used instead of CompareTo because CompareTo is an instance method and cannot take parameters directly.
 // string.Compare is a static method that allows you to compare two strings and specify the comparison type StringComparison.Ordinal
-// CompareTo is called on a specific string instance, while string.Compare is a static method that allows you to compare two strings directly.
+// CompareTo is called on a specific string instance, while string.Compare is a static method that allows you to compare two strings directly..
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------*/
+//Trim
+
+string greeting = "     Hello World!       ";
+Console.WriteLine($"[{greeting}]");
+
+
+string trimmedGreeting = greeting.TrimStart();
+Console.WriteLine($"[{trimmedGreeting}]");
+
+trimmedGreeting = greeting.TrimEnd();
+Console.WriteLine($"[{trimmedGreeting}]");
+
+trimmedGreeting = greeting.Trim();
+Console.WriteLine($"[{trimmedGreeting}]");
+
+//Replace
+
+string sayHello = "Hello World!";
+Console.WriteLine(sayHello);
+
+sayHello = sayHello.Replace("Hello", "Greetings"); //The first parameter is what is going to be replaced. Output = Greetings World!
+Console.WriteLine(sayHello);
+
+//Caps
+
+Console.WriteLine(sayHello.ToLower());
+Console.WriteLine(sayHello.ToUpper());
