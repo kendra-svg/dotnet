@@ -144,3 +144,35 @@ Console.WriteLine(sayHello);
 
 Console.WriteLine(sayHello.ToLower());
 Console.WriteLine(sayHello.ToUpper());
+
+//Contains for Searching
+
+string songLyrics = "You say goodbye, and I say hello";
+Console.WriteLine(songLyrics.Contains("goodbye"));
+Console.WriteLine(songLyrics.Contains("greetings"));
+
+//Contains is case sensitive
+Console.WriteLine(songLyrics.Contains("Hello"));
+
+//Contains with insensitive case
+Console.WriteLine(songLyrics.Contains("Hello", StringComparison.OrdinalIgnoreCase));
+
+//Starts with
+Console.WriteLine(songLyrics.StartsWith("You"));
+Console.WriteLine(songLyrics.StartsWith("hello"));
+
+//Starts with is case sensitive
+Console.WriteLine(songLyrics.StartsWith("you"));
+
+//Starts with insensitive case
+Console.WriteLine(songLyrics.StartsWith("you", StringComparison.OrdinalIgnoreCase));
+
+//EndsWith
+Console.WriteLine(songLyrics.EndsWith("hello"));
+Console.WriteLine(songLyrics.EndsWith("You"));
+
+//EndsWith is case sensitive
+Console.WriteLine(songLyrics.EndsWith("Hello"));
+
+//EndsWith insensitive case
+Console.WriteLine(songLyrics.EndsWith("HELLO", StringComparison.OrdinalIgnoreCase));
