@@ -176,3 +176,47 @@ Console.WriteLine(songLyrics.EndsWith("Hello"));
 
 //EndsWith insensitive case
 Console.WriteLine(songLyrics.EndsWith("HELLO", StringComparison.OrdinalIgnoreCase));
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+//Numbers
+
+//Addition
+
+int a = 18;
+
+int b = 6;
+
+int c = a + b;
+
+Console.WriteLine(c);
+
+//Substraction
+
+int aB = 10;
+
+int bB = 5;
+
+int cB = aB - bB;
+
+Console.WriteLine(cB);
+
+//Multiplication
+
+int aBC = 100;
+
+int bCD = 10;
+
+int cDF = aBC * bCD;
+
+Console.WriteLine(cDF);
+
+//Division
+
+int aBCD = 500;
+
+int bCDF = 2;
+
+int cDEF = aBCD / bCDF;
+
+Console.WriteLine(cDEF);
