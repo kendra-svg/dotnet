@@ -114,4 +114,109 @@ Console.WriteLine(string.Compare("a", "A", StringComparison.Ordinal));  //Positi
 
 // string.Compare was used instead of CompareTo because CompareTo is an instance method and cannot take parameters directly.
 // string.Compare is a static method that allows you to compare two strings and specify the comparison type StringComparison.Ordinal
-// CompareTo is called on a specific string instance, while string.Compare is a static method that allows you to compare two strings directly.
+// CompareTo is called on a specific string instance, while string.Compare is a static method that allows you to compare two strings directly..
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------*/
+//Trim
+
+string greeting = "     Hello World!       ";
+Console.WriteLine($"[{greeting}]");
+
+
+string trimmedGreeting = greeting.TrimStart();
+Console.WriteLine($"[{trimmedGreeting}]");
+
+trimmedGreeting = greeting.TrimEnd();
+Console.WriteLine($"[{trimmedGreeting}]");
+
+trimmedGreeting = greeting.Trim();
+Console.WriteLine($"[{trimmedGreeting}]");
+
+//Replace
+
+string sayHello = "Hello World!";
+Console.WriteLine(sayHello);
+
+sayHello = sayHello.Replace("Hello", "Greetings"); //The first parameter is what is going to be replaced. Output = Greetings World!
+Console.WriteLine(sayHello);
+
+//Caps
+
+Console.WriteLine(sayHello.ToLower());
+Console.WriteLine(sayHello.ToUpper());
+
+//Contains for Searching
+
+string songLyrics = "You say goodbye, and I say hello";
+Console.WriteLine(songLyrics.Contains("goodbye"));
+Console.WriteLine(songLyrics.Contains("greetings"));
+
+//Contains is case sensitive
+Console.WriteLine(songLyrics.Contains("Hello"));
+
+//Contains with insensitive case
+Console.WriteLine(songLyrics.Contains("Hello", StringComparison.OrdinalIgnoreCase));
+
+//Starts with
+Console.WriteLine(songLyrics.StartsWith("You"));
+Console.WriteLine(songLyrics.StartsWith("hello"));
+
+//Starts with is case sensitive
+Console.WriteLine(songLyrics.StartsWith("you"));
+
+//Starts with insensitive case
+Console.WriteLine(songLyrics.StartsWith("you", StringComparison.OrdinalIgnoreCase));
+
+//EndsWith
+Console.WriteLine(songLyrics.EndsWith("hello"));
+Console.WriteLine(songLyrics.EndsWith("You"));
+
+//EndsWith is case sensitive
+Console.WriteLine(songLyrics.EndsWith("Hello"));
+
+//EndsWith insensitive case
+Console.WriteLine(songLyrics.EndsWith("HELLO", StringComparison.OrdinalIgnoreCase));
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+//Numbers
+
+//Addition
+
+int a = 18;
+
+int b = 6;
+
+int c = a + b;
+
+Console.WriteLine(c);
+
+//Substraction
+
+int aB = 10;
+
+int bB = 5;
+
+int cB = aB - bB;
+
+Console.WriteLine(cB);
+
+//Multiplication
+
+int aBC = 100;
+
+int bCD = 10;
+
+int cDF = aBC * bCD;
+
+Console.WriteLine(cDF);
+
+//Division
+
+int aBCD = 500;
+
+int bCDF = 2;
+
+int cDEF = aBCD / bCDF;
+
+Console.WriteLine(cDEF);
