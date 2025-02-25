@@ -220,30 +220,3 @@ int bCDF = 2;
 int cDEF = aBCD / bCDF;
 
 Console.WriteLine(cDEF);
-
-//Order of operations
-
-int x = 5;
-int y = 4;
-int z = 2;
-int w = (x + y) * z;
-
-Console.WriteLine(w);
-
-//Combining many different operations
-
-int u = (x + y) - 6 * z + (12 * 4) / 3 + 12; 
-//       (5 * 4) - 6 * 2 + (12 * 4) / 3 + 12
-//         (9)   - 12    +   (48)   / 3 + 12
-//             -3        +   16         + 12
-//                    -13      +     12
-//                             25
-
-Console.WriteLine(u);
-
-//Declaring ints will always produce an integer result, even if the expected outcome is a decimal
-int q = 7;
-int e = 4;
-int r = 3;
-int t = (q + e) / r;
-Console.WriteLine(t);
