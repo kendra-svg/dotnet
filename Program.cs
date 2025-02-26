@@ -240,14 +240,38 @@ int u = (x + y) - 6 * z + (12 * 4) / 3 + 12;
 
 Console.WriteLine(u);
 
-//Declaring ints will always produce an integer result, even if the expected outcome is a decimal
+//Declaring ints will always produce an integer result, even if the expected outcome is a decimal. Integer division will truncate the result 
 int q = 7;
 int e = 4;
 int r = 3;
 int t = (q + e) / r;
 Console.WriteLine(t);
 
-//git test
-=======
+//Even though integer division truncates the result, you can get the remainder by using the % character. Is called a remainder operator.
 
+int p = 7;
+int o = 4;
+int j = 3;
+int g = (p + o) / j;
+int h = (p + o) % j;
 
+Console.WriteLine($"quotient: {g}"); //Aka cociente
+Console.WriteLine($"remainder: {e}"); //aka residuo
+
+//int has min and max limits.
+
+int max = int.MaxValue;
+int min = int.MinValue;
+
+Console.WriteLine($"The range of integers is {min} to {max}");
+
+//Overflow and underflow condition
+
+int what = max + 3;
+int whatv2 = min - 3;
+Console.WriteLine($"An example of overflow: {what}");
+Console.WriteLine($"An example of underflow: {whatv2}");
+
+//When I add +1 to an int.MaxValue (2147483647), it will "wrap around" idk idc, and the value will turn into an int.MinValue (-2147483648), if I add 2 more to (now) int.MinValue, it will substract 2, causing the int.MinValue to change from -2147483648 to -2147483646.  That's an example of an overflow
+
+//The other way around happens for underflow condition
