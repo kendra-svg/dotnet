@@ -1,4 +1,4 @@
-﻿Console.WriteLine("Hello, World!");
+Console.WriteLine("Hello, World!");
 
 //Strings
 
@@ -218,7 +218,6 @@ int aBCD = 500;
 int bCDF = 2;
 
 int cDEF = aBCD / bCDF;
-
 Console.WriteLine(cDEF);
 
 //Order of operations
