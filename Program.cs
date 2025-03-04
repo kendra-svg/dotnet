@@ -1,3 +1,5 @@
+using System.Transactions;
+
 Console.WriteLine("Hello, World!");
 
 //Strings
@@ -240,14 +242,94 @@ int u = (x + y) - 6 * z + (12 * 4) / 3 + 12;
 
 Console.WriteLine(u);
 
-//Declaring ints will always produce an integer result, even if the expected outcome is a decimal
+//Declaring ints will always produce an integer result, even if the expected outcome is a decimal. Integer division will truncate the result 
 int q = 7;
 int e = 4;
 int r = 3;
 int t = (q + e) / r;
 Console.WriteLine(t);
 
-//git test
-=======
+//Even though integer division truncates the result, you can get the remainder by using the % character. Is called a remainder operator.
 
+int p = 7;
+int o = 4;
+int j = 3;
+int g = (p + o) / j;
+int h = (p + o) % j;
 
+Console.WriteLine($"quotient: {g}"); //Aka cociente
+Console.WriteLine($"remainder: {e}"); //aka residuo
+
+//int has min and max limits.
+
+int max = int.MaxValue;
+int min = int.MinValue;
+
+Console.WriteLine($"The range of integers is {min} to {max}");
+
+//Overflow and underflow condition
+
+int what = max + 3;
+int whatv2 = min - 3;
+Console.WriteLine($"An example of overflow: {what}");
+Console.WriteLine($"An example of underflow: {whatv2}");
+
+//When I add +1 to an int.MaxValue (2147483647), it will "wrap around" idk idc, and the value will turn into an int.MinValue (-2147483648), if I add 2 more to (now) int.MinValue, it will substract 2, causing the int.MinValue to change from -2147483648 to -2147483646.  That's an example of an overflow
+
+//The other way around happens for underflow condition
+
+//Doubles
+
+//Double-precision have twice the number of binary digits as single-precision. Single precision numbers are declared using the float keyword.
+
+double a1 = 5;
+double b1 = 4;
+double c1= 2;
+double d1 = (a1 + b1) / c1;
+
+Console.WriteLine(d1); //Output includes the decimal portion of the cociente
+
+//More compliacted expression using doubles
+
+double a2 = 19;
+double b2 = 23;
+double c2 = 8;
+double d2 = (a2 + b2) / c2;
+
+Console.WriteLine(d2);
+
+//Range of double values is much greater than integer values
+
+double maxDouble = Double.MaxValue;
+double minDouble = Double.MinValue;
+
+Console.WriteLine($"The range of doubles is {minDouble} to {maxDouble}"); //Printed put in scientific notation
+
+//Rounding errors
+double third = 1.0 / 3.0;
+
+Console.WriteLine(third);
+
+//decimal type 
+//has a smaller ranger but greater precision than double
+
+decimal minDecimal = decimal.MinValue;
+decimal maxDecimal = decimal.MaxValue;
+
+Console.WriteLine($"The range of decimal is {minDecimal} to {maxDecimal}");
+
+//decimal vs double precision
+
+double aDouble = 1.0;
+double bDouble = 3.0;
+Console.WriteLine(aDouble / bDouble);
+
+decimal cDecimal = 1.0M; //M suffix is to indicate that a constant should use the decimal type, otherwise, the compiler asumes the double type.
+decimal dDecimal = 3.0M; //M suffix is to indicate that a constant should use the decimal type, otherwise, the compiler asumes the double type.
+Console.WriteLine(cDecimal / dDecimal);
+
+double radiusCircle = 2.50;
+double pi = Math.PI;
+double area = pi * Math.Pow(radiusCircle, 2); // Math.Pow is to get the result of raising x to the power of y. Or to "elevar el radio (x) a la potencia de 2 (y) (en este caso)"
+
+Console.WriteLine($"The answer is {area}");
