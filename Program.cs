@@ -1,10 +1,20 @@
 using System.Transactions;
-
-
+using System;
 //ExploreStrings();
 //ExploreNumbers();
 //ExploreIfStatements();
 ExploreIf();
+
+TestingStaticExecutionClass.CallingStaticMethod();
+
+//TestingNonStaticExecutionClass.CallingNonStaticMethod(); // This throws an exception because it is non static.
+TestingNonStaticExecutionClass testingWithInstance = new TestingNonStaticExecutionClass(); //This is an instance (object) of the TestingNonStaticExecution class
+testingWithInstance.CallingNonStaticMethod(); //This will allow the non static method to be called.
+
+ExploreLooping();
+
+
+
 
 void ExploreStrings()
 {
@@ -427,3 +437,93 @@ void ExploreIf()
         Console.WriteLine("And the first number is not greater than the second");
     }
 }
+
+void ExploreLooping() //If a method was declared below the class types it would throw a compile error:
+                      //CS8803 Top-level statements must precede namespace and type declarations.
+                      //Meaning that since this is being declared as a top level statement, it must be on top of the rest of the code(types and namespaces)
+{
+    int counter = 0; //It starts at 0
+    while (counter < 10) //test the condition before executing the while.
+        // Counter < 10 It doesn't include the 10, so the output will only reach 9.
+    {
+        Console.WriteLine($"Hello world! The counter is {counter}");
+        counter++; //called increment operator and it will add 1 each time it's executed
+    }
+
+    int doWhileCounter = 0;
+    do
+    {
+        Console.WriteLine($"Hello World! The doWhileCounter is {doWhileCounter}");
+        doWhileCounter++; //If this is not added, it will cause an infinite loop where the program never ends because doWhileCounter is still 0, and it will keep executing until is less than 9 (which won't happen if that line is not added)
+    } while (doWhileCounter < 10);
+   
+
+}
+
+//namespace newdotnet //if a namespace encapsulates the classes and methods below, then they can't be called outside of the namespace
+//{
+
+public class TestingMethodClass
+{
+    public string TestingNonStaticMethod() //Calling this method will require an instance of the class to be created because it is not static
+    {
+        string y = "This is non static";
+
+        return y;
+    }
+
+    public static string TestingStaticMethod() //since the method is static, it can be called directly using the class name. e.g TestingMethodClass.TestingStaticMethod
+    {
+        string x = "This is static";
+        return x;
+
+    }
+}
+
+
+
+public class TestingNonStaticExecutionClass
+{
+    public void CallingNonStaticMethod()
+    {
+        TestingMethodClass myTestingMethodInstance = new TestingMethodClass(); //An instance of the class needs to be created, so that it can be called later in the code. In this case, this instance is necessary because TestingNonStaticMethod() is not static.
+
+        string nonStaticResult = myTestingMethodInstance.TestingNonStaticMethod();
+
+        Console.WriteLine(nonStaticResult);
+
+    }
+}
+
+public static class TestingStaticExecutionClass
+{
+    public static void CallingStaticMethod()
+    {
+
+        //Below, the instance of the TestingMethodClass is not required for method TestingStaticMethod because it is static and it can be called directly using the class name.
+
+        string staticResult = TestingMethodClass.TestingStaticMethod();
+
+        Console.WriteLine(staticResult);
+
+
+    }
+
+
+
+}
+
+
+//In C# 9.0, when creating a console app that doesn't automatically create a public main method, means that it's using top level statements. So adding a Program class and then a Main method could cause the Main method to get not executed as there are already top-level statements present. If all the code above this comment is removed/commented and the following code is added, then we can have a manually created Main Method that will execute just fine.
+
+//If the code above is not commented, then 'Program' below will be highlighted in red and show the compile error "Missing partial modifier on declaration of type 'Program'; another partial declaration of this type exists" because in a C# 9.0 program with top-level statements, the compiler automatically generates a Program class with a Main method behind the scenes, and if  you manually add a Program class and a Main method in the same file it will show the compile error mentioned above.
+
+//public class Program
+//{
+//    static void Main(string[] args)
+//    {
+
+//        Console.WriteLine("Hello from Main!");
+//    }
+//}
+
