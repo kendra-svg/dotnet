@@ -12,7 +12,8 @@ TestingNonStaticExecutionClass testingWithInstance = new TestingNonStaticExecuti
 testingWithInstance.CallingNonStaticMethod(); //This will allow the non static method to be called.
 
 ExploreLooping();
-
+ExploreForLoop();
+ExploreNestedLoops();
 
 
 
@@ -444,7 +445,7 @@ void ExploreLooping() //If a method was declared below the class types it would 
 {
     int counter = 0; //It starts at 0
     while (counter < 10) //test the condition before executing the while.
-        // Counter < 10 It doesn't include the 10, so the output will only reach 9.
+                         // Counter < 10 It doesn't include the 10, so the output will only reach 9.
     {
         Console.WriteLine($"Hello world! The counter is {counter}");
         counter++; //called increment operator and it will add 1 each time it's executed
@@ -456,8 +457,41 @@ void ExploreLooping() //If a method was declared below the class types it would 
         Console.WriteLine($"Hello World! The doWhileCounter is {doWhileCounter}");
         doWhileCounter++; //If this is not added, it will cause an infinite loop where the program never ends because doWhileCounter is still 0, and it will keep executing until is less than 9 (which won't happen if that line is not added)
     } while (doWhileCounter < 10);
-   
 
+
+}
+
+void ExploreForLoop()
+{
+    for (int index = 0; index < 10; index++) //the first part [int index = 0;] is called 'for initializer', it declares that index is the loop variable and sets the initial value to 0
+                                             //the middle part [index < 10;] is called 'for condition', it declares that his for loop continues to execute as long as the value of the counter is less than 10
+
+    //the final part [index++] is the 'for iterator', it specifies how to modify the loop variable after executing the block following the for statement. In this case it specifies that it should be incremeneted by 1 each time the block executes
+    {
+        Console.WriteLine($"Hello world! The index is {index}");
+    }
+}
+
+void ExploreNestedLoops()
+{
+    //not nested
+    for (int row = 1; row < 11; row++)
+    {
+        Console.WriteLine($"The row is {row}");
+    }
+    //not nested
+    for (char column = 'a'; column < 'k'; column++)
+    {
+        Console.WriteLine($"The column is {column}");
+    }
+    //nested loops
+    for (int row = 1; row < 11; row++)
+    {
+        for (char column = 'a'; column < 'k'; column++)
+        {
+            Console.WriteLine($"The cell is ({row}), ({column})");
+        }
+    }
 }
 
 //namespace newdotnet //if a namespace encapsulates the classes and methods below, then they can't be called outside of the namespace
