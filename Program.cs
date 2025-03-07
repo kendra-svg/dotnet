@@ -14,6 +14,7 @@ testingWithInstance.CallingNonStaticMethod(); //This will allow the non static m
 ExploreLooping();
 ExploreForLoop();
 ExploreNestedLoops();
+ChallengeCompleted();
 
 
 
@@ -492,6 +493,20 @@ void ExploreNestedLoops()
             Console.WriteLine($"The cell is ({row}), ({column})");
         }
     }
+}
+
+
+void ChallengeCompleted()
+{
+    int sum = 0;
+    for (int number = 1; number < 21; number++) 
+    {
+        if (number % 3 == 0) //To check if the number is divisible by 3
+        {
+            sum = sum + number; // if it is, then it will be added to the sum
+        }
+    }
+    Console.WriteLine($"The sum is {sum}");
 }
 
 //namespace newdotnet //if a namespace encapsulates the classes and methods below, then they can't be called outside of the namespace
