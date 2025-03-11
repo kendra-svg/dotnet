@@ -3,7 +3,7 @@ using System;
 //ExploreStrings();
 //ExploreNumbers();
 //ExploreIfStatements();
-ExploreIf();
+//ExploreIf();
 
 TestingStaticExecutionClass.CallingStaticMethod();
 
@@ -11,9 +11,9 @@ TestingStaticExecutionClass.CallingStaticMethod();
 TestingNonStaticExecutionClass testingWithInstance = new TestingNonStaticExecutionClass(); //This is an instance (object) of the TestingNonStaticExecution class
 testingWithInstance.CallingNonStaticMethod(); //This will allow the non static method to be called.
 
-ExploreLooping();
-ExploreForLoop();
-ExploreNestedLoops();
+//ExploreLooping();
+//ExploreForLoop();
+//ExploreNestedLoops();
 ChallengeCompleted();
 
 
