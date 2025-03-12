@@ -15,7 +15,7 @@ testingWithInstance.CallingNonStaticMethod(); //This will allow the non static m
 //ExploreForLoop();
 //ExploreNestedLoops();
 ChallengeCompleted();
-
+ExploringLists();
 
 
 void ExploreStrings()
@@ -499,7 +499,7 @@ void ExploreNestedLoops()
 void ChallengeCompleted()
 {
     int sum = 0;
-    for (int number = 1; number < 21; number++) 
+    for (int number = 1; number < 21; number++)
     {
         if (number % 3 == 0) //To check if the number is divisible by 3
         {
@@ -508,6 +508,16 @@ void ChallengeCompleted()
     }
     Console.WriteLine($"The sum is {sum}");
 }
+
+void ExploringLists()
+{
+    List<string> names = ["<name>", "Ana", "Felipe"];
+    foreach (var name in names)
+    {
+        Console.WriteLine($"Hello {name.ToUpper()}!");
+    }
+}
+
 
 //namespace newdotnet //if a namespace encapsulates the classes and methods below, then they can't be called outside of the namespace
 //{
