@@ -1,9 +1,11 @@
 using System.Transactions;
 using System;
+using System.Diagnostics.CodeAnalysis;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 //ExploreStrings();
 //ExploreNumbers();
 //ExploreIfStatements();
-ExploreIf();
+//ExploreIf();
 
 TestingStaticExecutionClass.CallingStaticMethod();
 
@@ -11,11 +13,12 @@ TestingStaticExecutionClass.CallingStaticMethod();
 TestingNonStaticExecutionClass testingWithInstance = new TestingNonStaticExecutionClass(); //This is an instance (object) of the TestingNonStaticExecution class
 testingWithInstance.CallingNonStaticMethod(); //This will allow the non static method to be called.
 
-ExploreLooping();
-ExploreForLoop();
-ExploreNestedLoops();
+//ExploreLooping();
+//ExploreForLoop();
+//ExploreNestedLoops();
 ChallengeCompleted();
-
+ExploringStringLists();
+ExploringIntLists();
 
 
 void ExploreStrings()
@@ -499,7 +502,7 @@ void ExploreNestedLoops()
 void ChallengeCompleted()
 {
     int sum = 0;
-    for (int number = 1; number < 21; number++) 
+    for (int number = 1; number < 21; number++)
     {
         if (number % 3 == 0) //To check if the number is divisible by 3
         {
@@ -508,6 +511,86 @@ void ChallengeCompleted()
     }
     Console.WriteLine($"The sum is {sum}");
 }
+
+void ExploringStringLists()
+{
+    List<string> names = ["Kendra", "Ana", "Felipe"];
+    foreach (var name in names)
+    {
+        Console.WriteLine($"Hello {name.ToUpper()}!");
+    }
+
+    Console.WriteLine();
+    names.Add("Maria");
+    names.Add("Bill");
+    names.Remove("Ana");
+
+    foreach (var name in names)
+    {
+        Console.WriteLine($"Hello {name.ToUpper()}!");
+    }
+
+    Console.WriteLine($"My name is {names[0]}.");
+    Console.WriteLine($"I've added {names[2]} and {names[3]} to the list;");
+
+    Console.WriteLine($"The list has {names.Count} people in it.");
+
+    var index = names.IndexOf("Felipe");
+    if (index == -1) //You should always check the index returned, because you might not now if the item is in the list.
+    {
+        Console.WriteLine($"When an item is not found, IndexOf returns {index}");
+    }
+    else
+    {
+        Console.WriteLine($"The name {names[index]} is at {index}");
+        //names[index] will output the element associated with index 1, in this case Felipe
+    }
+
+    index = names.IndexOf("Not found");
+    if (index == -1) //result of IndexOf is -1 when the element doesnt exist, otherwise IndexOf returns the correct index of the existing element 
+    {
+        Console.WriteLine($"When an item is not found, IndexOf returns {index}");
+    }
+    else
+    {
+        Console.WriteLine($"The name {names[index]} is at {index}");
+    }
+
+    names.Sort();
+    foreach (var name in names)
+    {
+        Console.WriteLine($"Hello {name.ToUpper()}!");
+    }
+}
+
+void ExploringIntLists()
+{
+    List<int> fibonacciNumbers = [1, 1];
+
+    Console.WriteLine($"{fibonacciNumbers[0]}");
+    Console.WriteLine($"{fibonacciNumbers[1]}");
+
+    for (var index = 1; index < 21; index++)
+    {
+        var previous = fibonacciNumbers[fibonacciNumbers.Count - 1]; //obtain last element by index
+        var previous2 = fibonacciNumbers[fibonacciNumbers.Count - 2]; //obtain second-to-last element by index
+        var next = previous + previous2;
+
+        fibonacciNumbers.Add(next);
+
+        if (next == 6765)
+        {
+            Console.WriteLine(next);
+            break;
+        }
+
+        Console.WriteLine(next);
+
+    }
+}
+
+
+
 
 //namespace newdotnet //if a namespace encapsulates the classes and methods below, then they can't be called outside of the namespace
 //{
