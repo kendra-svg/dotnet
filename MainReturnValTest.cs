@@ -27,3 +27,5 @@ class AsyncMainReturnValTest
     }
 
 }
+
+//Top level statements must precede namespaces and types
