@@ -55,6 +55,29 @@ var query = from item in source
             where item <= limit
             select item;
 
+//constant field on type byte
+byte b = byte.MaxValue;
+
+//you declare and assign values to them as if theyre simple non-aggregate types
+
+byte num = 0xA;
+int i = 5;
+char c = 'Z';
+
+//Value types are sealed. You cant derive a type from any value type
+
+//You use the struct keyword to create your own custom value types. Typically, a struct is used as a container for a small set of related variables, as shown in the following example:
+
+public struct Coords
+{
+    public int x, y;
+
+    public Coords(int p1, int p2)
+    {
+        x = p1;
+        y = p2;
+    }
+}
 
 
 public class MyClass
@@ -77,7 +100,7 @@ public class MyClass
             Console.WriteLine($"Printing: '{String.Empty}' ");
             return String.Empty;
         }
-        
+
     }
     private string[] names = ["Spencer", "Sally", "Doug"];
 }
