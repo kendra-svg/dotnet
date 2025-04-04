@@ -34,23 +34,23 @@ public class Person
 
 //var p1 = new Person(); //this will not compile as the required properties are not set
 
-public class Program
-{
+//public class Program
+//{
 
 
-    public static void Main(string[] args)
-    {
-        PersonObject();
-    }
+//    public static void Main(string[] args)
+//    {
+//        PersonObject();
+//    }
 
-    public static Person PersonObject()
-    {
-        var p2 = new Person() { FirstName = "Grace", LastName = "Hopper" };
-        Console.WriteLine(p2);
-        return p2;
-    }
+//    public static Person PersonObject()
+//    {
+//        var p2 = new Person() { FirstName = "Grace", LastName = "Hopper" };
+//        Console.WriteLine(p2);
+//        return p2;
+//    }
 
-}
+//}
 
 public class Employee
 {
@@ -63,3 +63,25 @@ public class Manager : Employee
 
     //New manager fields, properties methods and events go here...
 }
+
+//An abstract class contains abstract methods that have a signature definition but no implementation
+
+//A record is class or struct that provides special syntax and behavior for working with data models
+
+//A record's ToString method creates a formatted string that shows an object's type name and the names and values of all its public properties
+
+//A record can inherit from another record. A record can't inherit from a class, and a class can't inherit from a record. 
+
+public record Persona(string firstName, string lastName)
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            Persona persona = new("Nancy", "Drew");
+
+            Console.WriteLine(persona);
+        }
+    }
+}
+
