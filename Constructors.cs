@@ -72,16 +72,34 @@ public class Manager : Employee
 
 //A record can inherit from another record. A record can't inherit from a class, and a class can't inherit from a record. 
 
-public record Persona(string firstName, string lastName)
-{
-    public static class Program
-    {
-        public static void Main()
-        {
-            Persona persona = new("Nancy", "Drew");
+//public record Persona(string firstName, string lastName)
+//{
+//    public static class Program
+//    {
+//        public static void Main()
+//        {
+//            Persona persona = new("Nancy", "Drew");
 
-            Console.WriteLine(persona);
-        }
+//            Console.WriteLine(persona);
+//        }
+//    }
+//}
+
+public record NewPerson(string FirstName, string LastName, string[] PhoneNumbers);
+
+public class Program
+{
+    public static void Main()
+    {
+        var phoneNumbers = new string[2];
+        NewPerson newPerson1 = new NewPerson("Nancy", "Drew", phoneNumbers);
+        NewPerson newPerson2 = new NewPerson("Nancy", "Drew", phoneNumbers);
+        Console.WriteLine(newPerson1 == newPerson2); //true
+
+        newPerson1.PhoneNumbers[0] = "123-4567";
+        Console.WriteLine(newPerson1 == newPerson2); //true
+
+        Console.WriteLine(ReferenceEquals(newPerson1, newPerson2)); //false
     }
 }
 
