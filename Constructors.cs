@@ -132,6 +132,8 @@ public class Program
     }
 }
 
+
+//To implement an interface member, the corresponding member of the implmenting class must be public, non static and have the same name and signature as the interface member.
 interface IEquatable<T>
 {
     bool Equals(T obj);
