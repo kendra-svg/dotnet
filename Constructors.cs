@@ -22,13 +22,13 @@ public class ContainerThree(int capacity)
 
 //You can also use the required modifier on a property and allow callers to use an object initializer to set the initial value of the property:
 
-public class Person
-{
-    public required string LastName { get; set; }
-    public required string FirstName { get; set; }
+//public class Person
+//{
+//    public required string LastName { get; set; }
+//    public required string FirstName { get; set; }
 
 
-}
+//}
 
 //The addition of the required keyword mandates that callers must set those properties as part of a *new* expression
 
@@ -85,21 +85,71 @@ public class Manager : Employee
 //    }
 //}
 
-public record NewPerson(string FirstName, string LastName, string[] PhoneNumbers);
+//public record NewPerson(string FirstName, string LastName, string[] PhoneNumbers);
+
+//public class Program
+//{
+//    public static void Main()
+//    {
+//        var phoneNumbers = new string[2];
+//        NewPerson newPerson1 = new NewPerson("Nancy", "Drew", phoneNumbers);
+//        NewPerson newPerson2 = new NewPerson("Nancy", "Drew", phoneNumbers);
+//        Console.WriteLine(newPerson1 == newPerson2); //true
+
+//        newPerson1.PhoneNumbers[0] = "123-4567";
+//        Console.WriteLine(newPerson1 == newPerson2); //true
+
+//        Console.WriteLine(ReferenceEquals(newPerson1, newPerson2)); //false
+//    }
+//}
+
+//The following example demonstrates use of a with expression to copy an immutable object and change one of the properties
+
+public record Person(string FirstName, string LastName)
+{
+    public required string[] PhoneNumbers { get; init; }
+}
 
 public class Program
 {
     public static void Main()
     {
-        var phoneNumbers = new string[2];
-        NewPerson newPerson1 = new NewPerson("Nancy", "Drew", phoneNumbers);
-        NewPerson newPerson2 = new NewPerson("Nancy", "Drew", phoneNumbers);
-        Console.WriteLine(newPerson1 == newPerson2); //true
+        Person person1 = new("Nancy", "Drew") { PhoneNumbers = new string[1] };
 
-        newPerson1.PhoneNumbers[0] = "123-4567";
-        Console.WriteLine(newPerson1 == newPerson2); //true
+        Console.WriteLine(person1);
+        //output: Person { FirstName = Nancy, LastName = Davolio, PhoneNumbers = System.String[] }
 
-        Console.WriteLine(ReferenceEquals(newPerson1, newPerson2)); //false
+        Person person2 = person1 with { FirstName = "John" };
+        Console.WriteLine(person2);
+
+        //output: Person { FirstName = Nancy, LastName = Davolio, PhoneNumbers = System.String[]}
+
+        Console.WriteLine(person1 == person2); //output false
+
+        person2 = person1 with { };
+
+        Console.WriteLine(person1 == person2); //output True
     }
 }
 
+
+//To implement an interface member, the corresponding member of the implmenting class must be public, non static and have the same name and signature as the interface member.
+interface IEquatable<T>
+{
+    bool Equals(T obj);
+}
+
+public class Car : IEquatable<Car>
+{
+    public string? Make { get; set; }
+    public string? Model { get; set; }
+    public string? Year { get; set; }
+
+    //Implementation of IEquatable<T> interface
+
+    public bool Equals(Car? car)
+    {
+        return (this.Make, this.Model, this.Year) ==
+            (car?.Make, car?.Model, car?.Year);
+    }
+}
