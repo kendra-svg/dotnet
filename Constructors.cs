@@ -153,3 +153,5 @@ public class Car : IEquatable<Car>
             (car?.Make, car?.Model, car?.Year);
     }
 }
+
+//POO gives us a modular, maintainable code full of building blocks we can easily reuse
