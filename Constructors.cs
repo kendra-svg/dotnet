@@ -269,31 +269,31 @@ using System.Net.Http.Headers;
 //    }
 //}
 
-var productInfo = new List<Product>()
-{
-   new Product 
-   {    Color = "Black",
-        Price = 1000
-   }
-};
+//var productInfo = new List<Product>()
+//{
+//   new Product 
+//   {    Color = "Black",
+//        Price = 1000
+//   }
+//};
 
-var productQuery =
-    from prod in productInfo
-    select new { prod.Color, prod.Price };
+//var productQuery =
+//    from prod in productInfo
+//    select new { prod.Color, prod.Price };
 
-foreach (var v in productQuery)
-{
-    Console.WriteLine("Color = {0}, Price={1}", v.Color, v.Price);
+//foreach (var v in productQuery)
+//{
+//    Console.WriteLine("Color = {0}, Price={1}", v.Color, v.Price);
 
-}
-Console.ReadLine();
+//}
+//Console.ReadLine();
 
-class Product
-{
-    public string? Color { get; set; }
-    public decimal Price { get; set; }
-    public string? Name { get; set; }
-    public string? Category { get; set; }
+//class Product
+//{
+//    public string? Color { get; set; }
+//    public decimal Price { get; set; }
+//    public string? Name { get; set; }
+//    public string? Category { get; set; }
 
-    public string? Size { get; set; }
-}
+//    public string? Size { get; set; }
+//}
