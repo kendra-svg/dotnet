@@ -8,7 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FFC98363-CF91-4325-B728-A64F9F6AFB89}"
 	ProjectSection(SolutionItems) = preProject
 		CSkeleton.cs = CSkeleton.cs
-		FileManipulation.cs = FileManipulation.cs
 		MainReturnValTest.cs = MainReturnValTest.cs
 	EndProjectSection
 EndProject
