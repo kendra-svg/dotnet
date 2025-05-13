@@ -24,40 +24,79 @@
 //object anotherMessage = "This is a string of characters";
 //IEnumerable<char> someCharacters = "abcdefgfgasjfshdfjksdhf";
 
-using System.Collections.Concurrent;
+//using System.Collections.Concurrent;
 
-public class Person()
+//public class Person()
+//{
+//    public string? Name { get; set; }
+//    public int Age { get; set; }
+
+//    public Person(string name, int age) : this()
+//    {
+//        this.Name = name;
+//        this.Age = age;
+//    }
+
+
+//}
+
+//class Program()
+//{
+//    public static void Main()
+//    {
+//        Person person1 = new Person("name", 0);
+//        Console.WriteLine("person1 Name = {0} Age = {1}", person1.Name, person1.Age);
+
+//        //Declare new person, assign person1 to it
+//        Person person2 = person1;
+
+//        //Change the name of person2, and person1 also changes.
+//        person2.Name = "Nombre";
+//        person2.Age = 22;
+
+//        Console.WriteLine("person2 Name = {0} Age = {1}", person2.Name, person2.Age);
+
+//        Console.WriteLine("person1 Name = {0} Age = {1}", person1.Name, person2.Age);
+
+
+//    }
+//}
+
+//creating instance struct
+public struct Person()
 {
-    public string? Name { get; set; }
-    public int Age { get; set; }
-
+    public string Name;
+    public int Age;
     public Person(string name, int age) : this()
     {
         this.Name = name;
         this.Age = age;
     }
 
-
-}
-
-class Program()
-{
-    public static void Main()
+    public class Application()
     {
-        Person person1 = new Person("name", 0);
-        Console.WriteLine("person1 Name = {0} Age = {1}", person1.Name, person1.Age);
+        static void Main()
+        {
+            //Create struct instance and initilize it by using "new"
+            //Memory is allocated on thread stack
 
-        //Declare new person, assign person1 to it
-        Person person2 = person1;
+            Person p1 = new Person("Alex", 9);
+            Console.WriteLine("p1 Name = {0} Age = {1}", p1.Name, p1.Age);
 
-        //Change the name of person2, and person1 also changes.
-        person2.Name = "Nombre";
-        person2.Age = 22;
+            //Create new struct object. Note that struct can be initialized withut using "new"
 
-        Console.WriteLine("person2 Name = {0} Age = {1}", person2.Name, person2.Age);
+            Person p2 = p1;
 
-        Console.WriteLine("person1 Name = {0} Age = {1}", person1.Name, person2.Age);
+            //Assign values to p2 members
+            p2.Name = "Spencer";
+            p2.Age = 7;
 
+            Console.WriteLine("p2 Name = {0} Age = {1}", p2.Name, p2.Age);
 
+            //p1 values remain unchanged because p2 is copy
+            Console.WriteLine("p1 Name = {0} Age = {1}", p1.Name, p1.Age);
+        }
     }
+
+
 }
